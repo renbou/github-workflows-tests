@@ -1,0 +1,12 @@
+name: Print Environment
+on: workflow_dispatch
+jobs:
+  print-env-node:
+    runs-on: ubuntu-latest
+    name: Print ENV available to Node
+    steps:
+      - name: Print ENV available to Node
+        uses: actions/github-script@v3
+        with:
+          script: |
+            console.log(process.env);
