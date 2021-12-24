@@ -14,7 +14,7 @@ jobs:
           key: aboba-bebra
       - name: Print cached file
         run: |
-          cat aboba.txt
+          cat aboba.txt || true
       - name: Save cache
         run: |
           date "+%H:%M:%S" > aboba.txt
