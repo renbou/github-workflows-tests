@@ -1,0 +1,20 @@
+name: Test cache
+on: workflow_dispatch
+jobs:
+  print-env-node:
+    runs-on: ubuntu-latest
+    name: Restore and write to cache
+    env:
+      ghsecret: ${{ github.token }}  
+    steps:
+      - name: Cache file
+        uses: actions/cache@v2
+        with:
+          path: aboba.txt
+          key: aboba-bebra
+      - name: Print cached file
+        run: |
+          cat aboba.txt
+      - name: Save cache
+        run: |
+          date "+%H:%M:%S" > aboba.txt
