@@ -11,7 +11,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Print files
         run: |
-          tree
+          tree -a
       - name: Print pwd
         run: |
           pwd
