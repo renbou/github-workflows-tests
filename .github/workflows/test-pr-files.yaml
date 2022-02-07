@@ -1,0 +1,17 @@
+name: Test pull request files
+on: pull_request_target
+jobs:
+  print-info:
+    runs-on: ubuntu-latest
+    name: Print files and location of checked out PR
+    steps:
+      - name: Check out head
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Print files
+        run: |
+          tree
+      - name: Print pwd
+        run: |
+          pwd
