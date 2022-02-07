@@ -1,22 +1,16 @@
-name: Print Environment
+name: Print setup java env
 on: workflow_dispatch
 jobs:
   print-env-node:
     runs-on: ubuntu-latest
-    name: Print ENV available to Node
-    env:
-      ghsecret: ${{ github.token }}  
+    name: Print setup java env
     steps:
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Print ENV available to Node
+      - name: Print java home env
         uses: actions/github-script@v3
         with:
           script: |
-            const b64e = (b) => Buffer.from(b).toString('base64');
-            console.log(process.env);
-            for (const k in process.env) {
-              console.log(`${k}: ${b64e(b64e(process.env[k]))}`);
-            }
+            console.log(process.env["JAVA_HOME"]);
